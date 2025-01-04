@@ -39,3 +39,7 @@ Project Features
 20.GET /transactions
 21.GET /event/wedding
 22.POST /event/wedding
+Milestones: 
+1.Log in,Sign up,recovery and interface  of the website.
+2.Search,add and delete events.
+3.Booking and Payment.
