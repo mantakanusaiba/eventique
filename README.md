@@ -1,3 +1,8 @@
+Team members: 
+20220104003  Atandrila Pushpa : atandrilapushpa@gmail.com   (Backend)
+20220104004  Mahia Rahman     : mahiarahman2003@gmail.com   (Backend+Frontend)
+20220104010  Mantaka Nusaiba  : mantakanusaiba084@gmail.com (Lead)
+20220104023  Khadiza Khanom   : lk221201@gmail.com          (Frontend)
 Project Overview for EVENTIQUE
 Project Title: 
 Eventique - Crafting Memorable Moments
