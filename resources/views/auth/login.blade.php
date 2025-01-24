@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventique Login</title>
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         body {
             background-color: #1a1a1a;
@@ -65,24 +66,34 @@
 
     <div class="container">
         <h2 class="title mb-4">Login</h2>
-        <form>
+        <form action="{{ route('login-user') }}" method="POST">
+            @csrf
+            @if (Session::has('success'))
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+            @endif
+            @if (Session::has('fail'))
+                <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+            @endif
+
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control" placeholder="E-mail" required>
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
             </div>
+
             <div class="mb-4 input-group">
                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
+
             <button type="submit" class="btn btn-custom">SUBMIT</button>
         </form>
+
         <div class="login-link">
-            Don't have an account? <a href="/registration#">Sign Up</a>
+            Don't have an account? <a href="/registration">Sign Up</a>
         </div>
     </div>
 
-    <!-- Bootstrap Icons and JS -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventique Sign Up</title>
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -65,31 +65,51 @@
 
     <div class="container">
         <h2 class="title mb-4">SIGN UP</h2>
-        <form>
+        <form action="{{ route('register-user') }}" method="POST">
+            @if (Session::has('success'))
+            <div class="alert alert-success">{{ Session::get('success') }}</div>
+            @endif
+            @if (Session::has('fail'))
+            <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+            @endif
+
+            @csrf
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <input type="text" class="form-control" placeholder="Name" required>
+                <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}" required>
+                @error('name')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                <input type="text" class="form-control" placeholder="Phone" required>
+                <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
+                @error('phone')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control" placeholder="E-mail" required>
+                <input type="email" name="email" class="form-control" placeholder="E-mail" value="{{ old('email') }}" required>
+                @error('email')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4 input-group">
                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                @error('password')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-custom">SUBMIT</button>
         </form>
         <div class="login-link">
-            Already have an account? <a href="/login#">LOG IN</a>
+            Already have an account? <a href="/login">LOG IN</a>
         </div>
     </div>
 
-    <!-- Bootstrap Icons and JS -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </body>
