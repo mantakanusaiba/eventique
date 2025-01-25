@@ -1,54 +1,62 @@
 <!DOCTYPE html>
+<link href="styles.css" rel="stylesheet">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventique - About Us</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Eventique</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fdfaf6;
+            font-family: Arial, sans-serif;
+            background-color: #fdf8f4;
+            margin: 0 15px;
+            color: #5a3225; 
+            padding-top: 120px;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            border-bottom: 1px solid #ddd;
+        .navbar {
+            position: fixed; 
+            top: 0; 
+            width: 100%;
+            z-index: 1000; 
+            padding-bottom: 20px;
+            background-color: #fff; 
         }
-
-        header .logo {
-            font-size: 1.8rem;
+        .navbar-brand {
+            font-size: 24px;
             font-weight: bold;
-            color: #444;
+            color: black; 
+            align-content: left;
         }
-
-        nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
+        .navbar-nav .nav-link {
+            font-size: 15px;
+            color: #5a3225; 
             font-weight: bold;
-            text-decoration: none;
-            color: #444;
         }
 
-        nav a.active {
-            color: #c49a6c;
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block; 
+            margin-top: 0; 
+        }
+
+        .dropdown-menu {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .nav-link i {
+            font-size: 18px; 
+            color: #5a3225; 
         }
 
         .container {
             display: flex;
-            justify-content: space-between;
-            align-items: center; /* Centers content vertically */
-            padding: 50px;
-            max-width: 1200px;
-            margin: auto;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         .about-content {
@@ -81,15 +89,12 @@
 
         .about-image {
             width: 40%;
-            display: flex;
-            align-items: flex-start; /* Aligns image relative to content */
         }
 
         .about-image img {
-            height:500px;
-            width: 110%;
+            height: 500px;
+            width: 100%;
             border-radius: 10px;
-            margin-top: 20px; /* Moves the image slightly downward */
         }
 
         .cta-button {
@@ -111,28 +116,64 @@
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
             .about-image {
+                width: 100%;
                 margin-top: 20px;
+            }
+
+            .about-content {
                 width: 100%;
             }
         }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="logo">EVENTIQUE</div>
-    <nav>
-        <a href="#">HOME</a>
-        <a href="#" class="active">ABOUT</a>
-        <a href="#">CONTACT</a>
-        <a href="#">EVENT</a>
-        <a href="#">LOG IN</a>
-    </nav>
-</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-left" href="#">
+            <img src="images/logo.png" alt="Logo" width="40" height="40" class="me-2"> 
+            <span>EVENTIQUE</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/about') }}">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/contact') }}">CONTACT</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="eventDropdown" role="button">
+                        EVENTS
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="eventDropdown">
+                        <li><a class="dropdown-item" href="{{ url('/event/wedding') }}">Wedding</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/event/reception') }}">Reception</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/event/birthday') }}">Birthday</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/event/corporate') }}">Corporate Event</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/login') }}">LOG IN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center" href="{{ url('/Profile') }}">
+                        <span class="material-icons" style="font-size: 25px; margin-right: 10px;">person</span> 
+                        <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
     <div class="about-content">
@@ -158,6 +199,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
