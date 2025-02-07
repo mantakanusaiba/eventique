@@ -6,6 +6,9 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\WelcomeController;
 
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +29,10 @@ Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
+
+Route::get('/contact', [ContactController::class, 'create'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/about', [AboutUsController::class, 'index'])->name('about');
+
 
 
