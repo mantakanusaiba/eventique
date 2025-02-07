@@ -22,9 +22,11 @@ use App\Http\Controllers\ContactController;
 */
 
 
+Route::get('/',[CustomAuthController::class,'login']);
 Route::get('/login',[CustomAuthController::class,'login']);
 Route::get('/registration',[CustomAuthController::class,'registration']);
-Route::get('/', [WelcomeController::class, 'index'])->name('home');
+Route::get('/home', [WelcomeController::class, 'index'])->name('home');
+
 
 
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
@@ -33,6 +35,3 @@ Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('lo
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/about', [AboutUsController::class, 'index'])->name('about');
-
-
-
