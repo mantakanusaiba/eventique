@@ -23,7 +23,7 @@
                         EVENTS
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="eventDropdown">
-                        <li><a class="dropdown-item" href="{{ url('/event/wedding') }}">Wedding</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/wedding-packages') }}">Wedding</a></li>
                         <li><a class="dropdown-item" href="{{ url('/event/reception') }}">Reception</a></li>
                         <li><a class="dropdown-item" href="{{ url('/event/birthday') }}">Birthday</a></li>
                         <li><a class="dropdown-item" href="{{ url('/event/corporate') }}">Corporate Event</a></li>

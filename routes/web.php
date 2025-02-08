@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\WeddingController;
 
 /*
 |--------------------------------------------------------------------------|
@@ -38,6 +39,10 @@ Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPass
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
+
+Route::get('/wedding-packages', [WeddingController::class, 'index'])->name('wedding-packages');
+Route::get('/wedding-package/{id}', [WeddingController::class, 'show'])->name('wedding-package.show');
+
 
 
 Route::middleware([
