@@ -96,19 +96,21 @@
             <h2>Get in Touch with <br>Eventique</h2>
             <p>Please fill out the form below to send us an email.</p>
             <p>We’re here to make your event extraordinary! Whether you have a question, need a consultation, or are ready to start planning, our team is ready to assist. Reach out to us through the form below, call, or email, and we’ll get back to you promptly. Let’s create something unforgettable together!</p>
-            <p><strong>E-mail:</strong> eventique@gmail.com</p>
+            <p><strong>E-mail:</strong> rahmanmahia19@gmail.com</p>
             <p><strong>PHONE NO:</strong> 0131234567</p>
         </div>
 
         <div class="col-lg-6">
-            <form action="{{ route('contact.store') }}" method="POST">
-                @csrf
-                <input type="text" name="name" placeholder="NAME" required>
-                <input type="email" name="email" placeholder="E-MAIL" required>
-                <input type="text" name="subject" placeholder="SUBJECT">
-                <textarea name="message" placeholder="MESSAGE" rows="6" required></textarea>
-                <button type="submit">SUBMIT</button>
-            </form>
+           <!-- resources/views/contact.blade.php -->
+<form action="{{ route('contact.store') }}" method="POST">
+    @csrf
+    <input type="text" name="name" placeholder="NAME" required>
+    <input type="email" name="email" placeholder="E-MAIL" required>
+    <input type="text" name="subject" placeholder="SUBJECT">
+    <textarea name="message" placeholder="MESSAGE" rows="6" required></textarea>
+    <button type="submit">SUBMIT</button>
+</form>
+
         </div>
     </div>
 </div>

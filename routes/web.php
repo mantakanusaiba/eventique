@@ -9,6 +9,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\WeddingController;
 
+use App\Http\Controllers\AuthController;
+
+
+
 /*
 |--------------------------------------------------------------------------|
 | Web Routes                                                                |
@@ -32,8 +36,8 @@ Route::get('/login', [CustomAuthController::class, 'login'])->name('login');
 Route::post('/register-user', [CustomAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user', [CustomAuthController::class, 'loginUser'])->name('login-user');
 
-Route::get('/contact', [ContactController::class, 'create'])->name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::view('/contact', 'contact')->name('contact'); 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store'); 
 Route::get('/about', [AboutUsController::class, 'index'])->name('about');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotPasswordForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
@@ -45,12 +49,19 @@ Route::get('/wedding-package/{id}', [WeddingController::class, 'show'])->name('w
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    });
 });
+
+
+
+
+
+
