@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\WeddingController;
+use App\Http\Controllers\BookingController;
+
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BirthdayController;
@@ -70,6 +72,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+
+Route::get('/book-now', [BookingController::class, 'create'])->name('book.create');
+Route::post('/book-now', [BookingController::class, 'store'])->name('book.store');
 
 
 
