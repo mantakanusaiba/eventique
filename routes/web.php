@@ -10,7 +10,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\WeddingController;
 
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\BirthdayController;
+use App\Http\Controllers\CorporateController;
 
 
 /*
@@ -47,6 +48,14 @@ Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']
 Route::get('/wedding-packages', [WeddingController::class, 'index'])->name('wedding-packages');
 Route::get('/wedding-package/{id}', [WeddingController::class, 'show'])->name('wedding-package.show');
 
+
+Route::get('/birthday', [BirthdayController::class, 'index'])->name('birthday.index');
+Route::get('/birthday/{id}', [BirthdayController::class, 'show'])->name('birthday.show');
+
+
+
+Route::get('/corporate', [CorporateController::class, 'index'])->name('corporate.index');
+Route::get('/corporate/{id}', [CorporateController::class, 'show'])->name('corporate.show');
 
 
 

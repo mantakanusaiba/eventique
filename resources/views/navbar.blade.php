@@ -24,13 +24,13 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="eventDropdown">
                         <li><a class="dropdown-item" href="{{ url('/wedding-packages') }}">Wedding</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/birthday') }}">Birthday</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/corporate') }}">Corporate Event</a></li>
                         <li><a class="dropdown-item" href="{{ url('/event/reception') }}">Reception</a></li>
-                        <li><a class="dropdown-item" href="{{ url('/event/birthday') }}">Birthday</a></li>
-                        <li><a class="dropdown-item" href="{{ url('/event/corporate') }}">Corporate Event</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/login') }}">LOG IN</a>
+                    <a class="nav-link" href="{{ url('/login') }}">LOG OUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center" href="{{ url('/Profile') }}">

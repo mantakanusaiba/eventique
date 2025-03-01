@@ -295,7 +295,7 @@
                 <div class="event-details">
                     <h2>Birthday Party</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="#" class="read-more-btn">Read More</a>   
+                    <a href="{{ url('birthday') }}" class="read-more-btn">Read More</a>         
                 </div>
                 <div class="image-container"> 
                     <img src="{{ asset('images/img7.jpeg') }}" alt="Birthday Party" class="event-image"> 
@@ -309,7 +309,7 @@
                 <div class="event-details">
                     <h2>Corporate Event </h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="#" class="read-more-btn">Read More</a> 
+                    <a href="{{ url('corporate') }}" class="read-more-btn">Read More</a> 
                 </div>
             </div>
         </div>
