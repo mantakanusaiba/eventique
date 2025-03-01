@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Booking;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
@@ -29,19 +29,22 @@ class BookingController extends Controller
             'services_other' => 'nullable|string|max:255',
         ]);
 
-        Booking::create([
-            'event_type' => json_encode($request->event_type),
-            'event_type_other' => $request->event_type_other,
-            'venue' => $request->venue,
-            'venue_address' => $request->venue_address,
-            'guest_count' => $request->guest_count,
-            'budget' => $request->budget,
-            'special_requests' => $request->special_requests,
-            'event_date' => $request->event_date,
-            'start_time' => $request->start_time,
-            'end_time' => $request->end_time,
-            'services' => json_encode($request->services),
-            'services_other' => $request->services_other,
+        
+        DB::insert("INSERT INTO bookings 
+            (event_type, event_type_other, venue, venue_address, guest_count, budget, special_requests, event_date, start_time, end_time, services, services_other)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [
+            json_encode($request->event_type),
+            $request->event_type_other,
+            $request->venue,
+            $request->venue_address,
+            $request->guest_count,
+            $request->budget,
+            $request->special_requests,
+            $request->event_date,
+            $request->start_time,
+            $request->end_time,
+            json_encode($request->services),
+            $request->services_other
         ]);
 
         return redirect()->route('book.create')->with('success', 'Booking request submitted successfully!');
