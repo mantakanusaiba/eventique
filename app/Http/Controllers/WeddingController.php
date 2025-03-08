@@ -11,7 +11,6 @@ class WeddingController extends Controller
     {
         $query = WeddingPackage::query(); 
         
-        
         if ($request->has('wedding_type') && $request->wedding_type != '') {
             $query->where('wedding_type', $request->wedding_type);
         }
@@ -30,5 +29,34 @@ class WeddingController extends Controller
 
         $packages = $query->get();  
         return view('wedding.index', ['packages' => $packages]);
+    }
+
+    public function store(Request $request)
+{
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    if ($request->hasFile('image')) {
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+        
+        WeddingPackage::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+            'wedding_type' => $request->wedding_type,
+            'image_url' => 'images/'.$imageName,
+            
+        ]);
+    }
+}
+
+
+    public function show($id)
+    {
+        
+        $package = WeddingPackage::find($id); 
+        return view('wedding.show', compact('package'));
     }
 }

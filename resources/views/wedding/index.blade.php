@@ -268,7 +268,8 @@
             <div class="col-md-12">
                 <div class="package-container">
                     <div class="package-img-wrapper">
-                        <div class="package-img" style="background-image: url('https://www.shutterstock.com/image-photo/wedding-stage-decorations-traditional-setups-260nw-2251978741.jpg');"></div>
+                    <div class="package-img" style="background-image: url('{{ $package->image_url }}');"></div>
+
                     </div>
                     <div class="package-info">
                         <h5>{{ $package['name'] }}</h5>
@@ -285,7 +286,8 @@
                                 <li>Extra Decorations Included</li>
                             @endif
                         </ul>
-                        <a href="/weddings/{{ $package['id'] }}" class="read-more-btn">Read More</a>
+                        <a href="{{ route('wedding.show', ['id' => $package['id']]) }}" class="read-more-btn">Read More</a>
+
                     </div>
                 </div>
             </div>

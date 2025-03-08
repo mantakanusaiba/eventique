@@ -50,6 +50,8 @@ Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']
 
 Route::get('/wedding-packages', [WeddingController::class, 'index'])->name('wedding-packages');
 Route::get('/wedding-package/{id}', [WeddingController::class, 'show'])->name('wedding-package.show');
+Route::get('/weddings/{id}', [WeddingController::class, 'show'])->name('wedding.show');
+Route::get('/wedding', [WeddingController::class, 'index'])->name('wedding.index');
 
 
 Route::get('/birthday', [BirthdayController::class, 'index'])->name('birthday.index');
