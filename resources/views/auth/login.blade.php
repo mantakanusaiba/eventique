@@ -107,7 +107,6 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="logo">
             <img src="images/logo.png" alt="Eventique Logo"> 
@@ -139,7 +138,6 @@
                     <label for="rememberMe">Remember Me</label>
                 </div>
                 <a href="{{ route('password.request') }}" class="text-decoration-none">Forgot Password?</a>
-
             </div>
 
             <button type="submit" class="btn btn-custom mt-4">LOG IN</button>
@@ -147,6 +145,10 @@
 
         <div class="register-link">
             Don't have an account? <a href="/registration">SIGN UP</a>
+        </div>
+
+        <div class="admin-login-link mt-3">
+            <a href="{{ route('admin.login') }}" class="text-decoration-none">Admin Login</a>
         </div>
     </div>
 
