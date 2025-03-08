@@ -76,7 +76,7 @@
 
                 <div class="d-flex justify-content-between mt-4">
                     <a href="{{ route('birthday.index') }}" class="btn btn-secondary">← Back to Packages</a>
-                    <a href="{{ route('birthday.show', ['id' => $package->id]) }}#booking" class="btn btn-custom">Book Now</a>
+                    <a href="{{ route('booknow.show', ['id' => $package->id]) }}" class="btn btn-custom">Book Now</a>
                 </div>
             </div>
         </div>

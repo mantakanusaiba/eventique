@@ -39,7 +39,7 @@ use Illuminate\Support\Facades\DB;
             $venueNeeded = $request->input('venue_needed');
     
             $venuePrice = $venueNeeded ? 500 : 0;
-            $perGuestPrice = 50;
+            $perGuestPrice = 10;
             $totalPrice = $package->price + ($guestCount * $perGuestPrice) + $venuePrice;
     
             DB::insert('INSERT INTO new_bookings (package_id, email, guest_count, venue_needed, total_price) VALUES (?, ?, ?, ?, ?)', [

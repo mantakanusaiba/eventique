@@ -22,7 +22,7 @@
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(88, 36, 36, 0.1);
         }
 
         .card-body {
@@ -85,11 +85,10 @@
 
                 <div class="d-flex justify-content-between mt-4">
                     <a href="{{ route('corporate.index') }}" class="btn btn-secondary">← Back to Packages</a>
-                    <a href="{{ route('corporate.show', ['id' => $package->id]) }}#booking" class="btn btn-custom">Book Now</a>
+                    <a href="{{ route('booknow.show', ['id' => $package->id]) }}" class="btn btn-custom">Book Now</a>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
