@@ -14,6 +14,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BirthdayController;
 use App\Http\Controllers\CorporateController;
+use App\Http\Controllers\EventPackageController;
 
 
 /*
@@ -77,5 +78,7 @@ Route::get('/book-now', [BookingController::class, 'create'])->name('book.create
 Route::post('/book-now', [BookingController::class, 'store'])->name('book.store');
 
 
-
+Route::get('/event-packages', [EventPackageController::class, 'index']);
+Route::post('/add-package', [EventPackageController::class, 'store']);
+Route::delete('/delete-package/{id}', [EventPackageController::class, 'destroy']);
 
