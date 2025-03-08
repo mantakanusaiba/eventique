@@ -27,7 +27,7 @@ Eventique aims to simplify and enhance the event planning process by providing c
 ### **Tech Stack**
 - **Backend:** Laravel  
 - **Frontend:** React  
-- **Rendering Method:** Client-Side Rendering (CSR)
+- **Rendering Method:** Server Side Rendering (SSR)
 
 ---
 
@@ -50,7 +50,7 @@ Mock UI: [Canva Prototype](https://www.canva.com/design/DAGbJL0KL_c/kbu1brfey_30
 - **GET** `/forgot-password`
 - **POST** `/forgot-password` 
 - **GET** `/reset-password/{token}` 
-- **POST** `/reset-password` →  
+- **POST** `/reset-password` 
 
 ### **Admin Authentication APIs**  
 - **GET** `/admin/login`   
