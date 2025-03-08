@@ -84,3 +84,12 @@ Route::get('/event-packages', [EventPackageController::class, 'index']);
 Route::post('/add-package', [EventPackageController::class, 'store']);
 Route::delete('/delete-package/{id}', [EventPackageController::class, 'destroy']);
 
+Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login.submit');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+});
+Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
