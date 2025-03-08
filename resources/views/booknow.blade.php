@@ -85,13 +85,15 @@
                 </div>
             </form>
 
-            @if (session('success'))
-                <div class="success-card">
-                    <h3>🎉 Booking Successful!</h3>
-                    <p>{{ session('success') }}</p>
-                    <p>Redirecting to the home page in <span id="countdown">5</span> seconds...</p>
-                </div>
-            @endif
+            @if (session('success') && session('booking'))
+    <div class="success-card">
+        <h3>🎉 Booking Successful!</h3>
+        <p>{{ session('success') }}</p>
+        <p><a href="{{ route('booking.show', session('booking')->id) }}" class="btn btn-primary">View Booking Details</a></p>
+    </div>
+@endif
+
+
 
             @if (session('error'))
                 <div class="alert alert-danger mt-4">
@@ -108,6 +110,8 @@
             const packagePrice = {{ $package->price }};
             const guestCount = parseInt(document.getElementById('guest_count').value);
             const venueNeeded = document.getElementById('venue_needed').value === '1';
+
+          
             const venuePrice = venueNeeded ? 500 : 0; 
             const perGuestPrice = 50; 
             const totalPrice = packagePrice + (guestCount * perGuestPrice) + venuePrice;

@@ -93,3 +93,12 @@ Route::middleware(['admin'])->group(function () {
     })->name('admin.dashboard');
 });
 Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
+
+use App\Http\Controllers\BookNowController;
+
+Route::get('/booknow/{id}', [BookNowController::class, 'show'])->name('booknow.show');
+Route::post('/booknow/{id}', [BookNowController::class, 'store'])->name('booknow.store');
+
+Route::get('/booking', [BookingController::class, 'show'])->name('booking.show');
+
+

@@ -49,4 +49,17 @@ class BookingController extends Controller
 
         return redirect()->route('book.create')->with('success', 'Booking request submitted successfully!');
     }
+    public function show()
+{
+    
+    $bookings = DB::select('SELECT * FROM new_bookings');
+
+    if (!$bookings) {
+        return redirect()->route('home')->with('error', 'No bookings found.');
+    }
+
+    return view('booking', compact('bookings'));
+}
+
+    
 }
