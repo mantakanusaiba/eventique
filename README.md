@@ -27,7 +27,7 @@ Eventique aims to simplify and enhance the event planning process by providing c
 ### **Tech Stack**
 - **Backend:** Laravel  
 - **Frontend:** React  
-- **Rendering Method:** Client-Side Rendering (CSR)
+- **Rendering Method:** Server Side Rendering (SSR)
 
 ---
 
@@ -39,33 +39,61 @@ Mock UI: [Canva Prototype](https://www.canva.com/design/DAGbJL0KL_c/kbu1brfey_30
 ### **Project Features**
 - **User authentication** (registration, login, and recovery)
 - **CRUD operations** (Create, Read, Update, Delete)
+  
 - **API endpoints**:
-  1. **POST** `/auth/register`
-  2. **POST** `/auth/login`
-  3. **POST** `/auth/logout`
-  4. **POST** `/auth/refresh`
-  5. **GET** `/event/party`
-  6. **GET** `/event/:id`
-  7. **POST** `/event/party`
-  8. **PUT** `/event/:id`
-  9. **DELETE** `/event/:id`
-  10. **POST** `/bookings`
-  11. **GET** `/bookings/:id`
-  12. **PUT** `/bookings/:id`
-  13. **DELETE** `/bookings/:id`
-  14. **GET** `/services`
-  15. **GET** `/venues`
-  16. **GET** `/search`
-  17. **GET** `/filters`
-  18. **POST** `/payments`
-  19. **GET** `/payments/:id`
-  20. **GET** `/transactions`
-  21. **GET** `/event/wedding`
-  22. **POST** `/event/wedding`
+### **Authentication APIs**  
+- **GET** `/login`  
+- **POST** `/login-user`  
+- **GET** `/registration` 
+- **POST** `/register-user` 
+- **POST** `/logout` 
+- **GET** `/forgot-password`
+- **POST** `/forgot-password` 
+- **GET** `/reset-password/{token}` 
+- **POST** `/reset-password` 
 
----
+### **Admin Authentication APIs**  
+- **GET** `/admin/login`   
+- **POST** `/admin/login`  
+- **POST** `/admin/logout`  
+
+### **Dashboard APIs**  
+- **GET** `/dashboard`   
+- **GET** `/admin/dashboard` 
+
+### **Wedding Package APIs**  
+- **GET** `/wedding-packages`
+- **GET** `/wedding-package/{id}`  
+- **GET** `/weddings/{id}`   
+
+### **Birthday Package APIs**  
+- **GET** `/birthday`   
+- **GET** `/birthday/{id}` 
+
+### **Corporate Event APIs**  
+- **GET** `/corporate` 
+- **GET** `/corporate/{id}` 
+
+### **Event Package APIs**  
+- **GET** `/event-packages`
+- **POST** `/add-package`   
+- **DELETE** `/delete-package/{id}` 
+
+### **Booking APIs**  
+- **GET** `/book-now` 
+- **POST** `/book-now`   
+- **GET** `/booknow/{id}`  
+- **POST** `/booknow/{id}`  
+- **GET** `/booking`   
+
+### **Contact APIs**  
+- **GET** `/contact`  
+- **POST** `/contact` 
+
+### **About Us API**  
+- **GET** `/about` 
 
 ### **Milestones**
 1. Log in, Sign up, recovery, and interface of the website.
-2. Search, add, and delete events.
-3. Booking and Payment.
+2. Booking of event and Event Pages.
+3. Admin Panel.
